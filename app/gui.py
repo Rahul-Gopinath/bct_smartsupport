@@ -138,9 +138,18 @@ if not st.session_state.show_uploader and st.session_state.results:
 
     with left_col:
         st.header(selected["name"])
+        highlighted_lines = [2, 5, 10]  # Specify the line numbers to highlight (0-indexed)
+        highlighted_text = ""
+
+        for i, line in enumerate(selected['text'].splitlines()):
+            if i in highlighted_lines:
+                highlighted_text += f"<span style='background-color: blue;'>{html.escape(line)}</span><br>"
+            else:
+                highlighted_text += f"{html.escape(line)}<br>"
+
         # read-only, scrollable log display
         st.markdown(
-            f"<div class='log-box'>{html.escape(selected['text'])}</div>",
+            f"<div class='log-box'>{highlighted_text}</div>",
             unsafe_allow_html=True,
         )
 
