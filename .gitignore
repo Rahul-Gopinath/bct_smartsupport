@@ -1,1 +1,12 @@
+# Local environment files
 .env
+
+# Python caches
+__pycache__/
+*.py[cod]
+
+# Virtual environment
+.venv/
+
+# Chroma persistent store
+chroma_data/
