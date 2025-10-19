@@ -42,6 +42,7 @@ def suggest():
         return jsonify({'error': 'Missing line text'}), 400
 
     line_text = data['lineText']
+    print(line_text)
     suggestion = get_suggestion(line_text)
     return jsonify({'suggestion': suggestion})
 

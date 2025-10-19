@@ -161,6 +161,7 @@ function showLogWithHighlights() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ lineText })
       });
+      console.log({lineText});
       const data = await res.json();
       suggestionBox.textContent = data.suggestion || 'No suggestion found.';
     });
